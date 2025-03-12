@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalBrains - Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to LocalBrains</h1>
+        <p>Harnessing collective intelligence for smarter collaboration</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/collaborate">Collaborate</a></li>
+            <li><a href="/insights">Insights</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="content">
+        <div class="card">
+            <h2>AI-Powered Collaboration</h2>
+            <p>Our AI-driven platform connects you with the right people and insights to maximize innovation.</p>
+        </div>
+
+        <div class="card">
+            <h2>Expertise Matching</h2>
+            <p>Find the best collaborators based on skills, knowledge, and shared interests.</p>
+        </div>
+
+        <div class="card">
+            <h2>Real-Time Insights</h2>
+            <p>Analyze discussions and generate actionable insights with AI.</p>
+        </div>
+
+        <div class="card">
+            <h2>Gamification & Rewards</h2>
+            <p>Earn points, badges, and incentives for active participation.</p>
+        </div>
+
+        <!-- AI-Powered Search Box -->
+        <div class="card search-box">
+            <h2>Search with AI</h2>
+            <form method="POST" action="/search">
+                <input type="text" name="query" placeholder="Ask anything..." required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <!-- AI Insights Section -->
+        <div class="card ai-insights">
+            <h2>AI Insights</h2>
+            {% if query and result %}
+                <p><strong>Query:</strong> {{ query }}</p>
+                <p><strong>Response:</strong> <br>{{ result|safe }}</p>
+            {% else %}
+                <p>Search for any topic using AI and get instant insights!</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LocalBrains | AI-Powered Collective Intelligence</p>
+    </footer>
+</body>
+</html>
